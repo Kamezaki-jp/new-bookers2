@@ -1,22 +1,31 @@
-<%= render 'users/user', user: @user %>
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-3">
+      
+      <%= render 'users/user', user: @user %>
+      <%= render 'book', book: @book %>
+      
+    </div>
 
-<%= render 'book', book: @book %>
-
-<h2>Books</h2>
-<table class="table">
-  <tr>
-    <th></th>
-    <th>Title</th>
-    <th>Opinion</th>
-  </tr>
-
-  <% @books.each do |book| %>
-    <tr>
-      <td>
-        <%= attachment_image_tag book.user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg" %>
-      </td>
-      <td><%= link_to book.title, book_path(book) %></td>
-      <td><%= book.body %></td>
-    </tr>
-  <% end %>
-</table>
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table class="table">
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </tr>
+      
+        <% @books.each do |book| %>
+          <tr>
+            <td>
+              <%= attachment_image_tag book.user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg" %>
+            </td>
+            <td><%= link_to book.title, book_path(book) %></td>
+            <td><%= book.body %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+      </div>
